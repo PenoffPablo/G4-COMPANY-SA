@@ -11,9 +11,9 @@
   --font-sans: var(--font-dm-sans);
   --font-mono: var(--font-dm-sans);
 
-  /* Brand Colors — from 2026 Manual */
-  --color-g4-red: rgb(170, 42, 74);
-  --color-g4-red-dark: rgb(155, 43, 44);
+  /* Brand Colors — Pantone 711 C */
+  --color-g4-red: rgb(203, 44, 48);
+  --color-g4-red-dark: rgb(162, 35, 38);
 
   /* Geometry — toggle between 0px (none) and 32px (3xl) to test user preference */
   --radius-brand: 0px;
