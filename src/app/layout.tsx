@@ -18,7 +18,29 @@ export const metadata: Metadata = {
   description: "Firma especializada en apertura y desarrollo de mercados para empresas productivas. Exportación y Desarrollo Comercial Externalizado.",
   icons: {
     icon: "/logo-g4.ico"
-  }
+  },
+  openGraph: {
+    title: "G4 Company S.A | Visión Global de Negocios",
+    description: "Desarrollo de mercados internacionales para empresas productivas de alto valor agregado.",
+    url: "https://g4-company.vercel.app/",
+    siteName: "G4 Company S.A",
+    images: [
+      {
+        url: "/logo-g4.jpg",
+        width: 1200,
+        height: 1200,
+        alt: "Logo G4 Company S.A",
+      },
+    ],
+    locale: "es_AR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "G4 Company S.A | Visión Global de Negocios",
+    description: "Desarrollo de mercados internacionales para empresas productivas.",
+    images: ["/logo-g4.jpg"],
+  },
 };
 
 export default function RootLayout({
