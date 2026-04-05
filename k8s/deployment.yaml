@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: g4-deployment
+  labels:
+    app: g4-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: g4-app
+  template:
+    metadata:
+      labels:
+        app: g4-app
+    spec:
+      containers:
+      - name: g4-container
+        image: g4company:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: production
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"

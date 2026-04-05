@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+/* ============================================
+   G4 COMPANY — Design System
+   Color palette: Red + Black (dark premium)
+   ============================================ */
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --font-sans: var(--font-dm-sans);
+  --font-mono: var(--font-dm-sans);
+
+  /* Brand Colors — from 2026 Manual */
+  --color-g4-red: rgb(170, 42, 74);
+  --color-g4-red-dark: rgb(155, 43, 44);
+
+  /* Geometry — toggle between 0px (none) and 32px (3xl) to test user preference */
+  --radius-brand: 0px;
+
+  /* Surface tokens — resolve at runtime */
+  --color-surface-primary: var(--s-primary);
+  --color-surface-secondary: var(--s-secondary);
+  --color-surface-tertiary: var(--s-tertiary);
+  --color-surface-card: var(--s-card);
+  --color-surface-hover: var(--s-hover);
+  --color-surface-input: var(--s-input);
+
+  --color-border-primary: var(--b-primary);
+  --color-border-secondary: var(--b-secondary);
+  --color-border-focus: #DC2626;
+
+  --color-text-primary: var(--t-primary);
+  --color-text-secondary: var(--t-secondary);
+  --color-text-muted: var(--t-muted);
+  --color-text-inverse: var(--t-inverse);
+
+  /* States */
+  --color-success: #22C55E;
+  --color-success-bg: rgba(34, 197, 94, 0.12);
+  --color-warning: #F59E0B;
+  --color-warning-bg: rgba(245, 158, 11, 0.12);
+  --color-danger: #EF4444;
+  --color-danger-bg: rgba(239, 68, 68, 0.12);
+  --color-info: #3B82F6;
+  --color-info-bg: rgba(59, 130, 246, 0.12);
+}
+
+/* ===== DARK MODE (default) ===== */
+:root {
+  --bg: rgb(3, 1, 2);
+  --fg: rgb(255, 255, 255);
+  --s-primary: rgb(3, 1, 2);
+  --s-secondary: rgb(10, 3, 6);
+  --s-tertiary: rgb(17, 5, 10);
+  --s-card: rgb(12, 4, 7);
+  --s-hover: rgb(31, 31, 31);
+  --s-input: rgb(26, 26, 26);
+  --b-primary: rgba(255, 255, 255, 0.1);
+  --b-secondary: rgba(255, 255, 255, 0.2);
+  --t-primary: rgb(255, 255, 255);
+  --t-secondary: rgba(255, 255, 255, 0.8);
+  --t-muted: rgba(255, 255, 255, 0.6);
+  --t-inverse: rgb(3, 1, 2);
+}
+
+/* ===== LIGHT MODE ===== */
+[data-theme="light"] {
+  --bg: rgb(255, 255, 255);
+  --fg: rgb(20, 20, 20);
+  --s-primary: rgb(255, 255, 255);
+  --s-secondary: rgb(245, 245, 245);
+  --s-tertiary: rgb(238, 238, 238);
+  --s-card: rgb(250, 250, 250);
+  --s-hover: rgb(240, 240, 240);
+  --s-input: rgb(245, 245, 245);
+  --b-primary: #E0E0E0;
+  --b-secondary: #D0D0D0;
+  --t-primary: rgb(20, 20, 20);
+  --t-secondary: rgba(20, 20, 20, 0.75);
+  --t-muted: rgba(20, 20, 20, 0.5);
+  --t-inverse: rgb(255, 255, 255);
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ============================================
+   Scrollbar
+   ============================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-alert {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes progress-fill {
+  from { width: 0%; }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out both;
+}
+
+.animate-slide-left {
+  animation: slide-in-left 0.4s ease-out both;
+}
+
+.animate-slide-right {
+  animation: slide-in-right 0.4s ease-out both;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out both;
+}
+
+.animate-pulse-alert {
+  animation: pulse-alert 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 25%, rgba(255,255,255,0.05) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Stagger delays */
+.delay-1 { animation-delay: 0.05s; }
+.delay-2 { animation-delay: 0.1s; }
+.delay-3 { animation-delay: 0.15s; }
+.delay-4 { animation-delay: 0.2s; }
+.delay-5 { animation-delay: 0.25s; }
+.delay-6 { animation-delay: 0.3s; }
+.delay-7 { animation-delay: 0.35s; }
+.delay-8 { animation-delay: 0.4s; }
