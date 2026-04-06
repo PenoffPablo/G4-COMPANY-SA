@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "G4 Company S.A",
     images: [
       {
-        url: "/logo-g4.jpg",
+        url: "/logo-g4.webp",
         width: 1200,
         height: 1200,
         alt: "Logo G4 Company S.A",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "G4 Company S.A | Visión Global de Negocios",
     description: "Desarrollo de mercados internacionales para empresas productivas.",
-    images: ["/logo-g4.jpg"],
+    images: ["/logo-g4.webp"],
   },
 };
 

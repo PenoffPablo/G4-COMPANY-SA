@@ -15,7 +15,7 @@ export default function HomePage() {
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/barco-banner.png"
+              src="/barco-banner.webp"
               alt="Avión sobrevolando contenedores de carga"
               fill
               className="object-cover"
@@ -60,7 +60,7 @@ export default function HomePage() {
               {/* Image */}
               <div className="relative rounded-none overflow-hidden min-h-[350px] lg:min-h-[unset]">
                 <Image
-                  src="/trabajadores.jpg.jpeg"
+                  src="/trabajadores.webp"
                   alt="Equipo de trabajo en almacén logístico"
                   fill
                   className="object-cover"
@@ -168,7 +168,7 @@ export default function HomePage() {
               {/* Tarjeta Visual — Terminal de Contenedores */}
               <div className="relative rounded-none overflow-hidden animate-fade-in delay-2 min-h-[400px]">
                 <Image
-                  src="/containers.jpg.jpeg"
+                  src="/containers.webp"
                   alt="Terminal de contenedores con grúas portuarias"
                   fill
                   className="object-cover"
@@ -209,7 +209,7 @@ export default function HomePage() {
               {/* Single unified background image for the entire grid */}
               <div className="absolute inset-0 z-0">
                 <Image
-                  src="/containers.jpg.jpeg"
+                  src="/containers.webp"
                   alt="Terminal de contenedores"
                   fill
                   className="object-cover"
@@ -220,12 +220,12 @@ export default function HomePage() {
               {/* The grid container now has the divider background */}
               <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5 bg-white/30">
                 {[
-                  { id: '1', img: '/1.png', title: 'Vitivinicultura y bebidas premium' },
-                  { id: '2', img: '/2.png', title: 'Agroindustria especializada' },
-                  { id: '3', img: '/3.png', title: 'Alimentos gourmet y orgánicos' },
-                  { id: '4', img: '/4.png', title: 'Manufactura de nicho' },
-                  { id: '5', img: '/5.png', title: 'Economía creativa y marcas con identidad' },
-                  { id: '6', img: '/6.png', title: 'Proyectos productivos con enfoque sostenible' },
+                  { id: '1', img: '/1.webp', title: 'Vitivinicultura y bebidas premium' },
+                  { id: '2', img: '/2.webp', title: 'Agroindustria especializada' },
+                  { id: '3', img: '/3.webp', title: 'Alimentos gourmet y orgánicos' },
+                  { id: '4', img: '/4.webp', title: 'Manufactura de nicho' },
+                  { id: '5', img: '/5.webp', title: 'Economía creativa y marcas con identidad' },
+                  { id: '6', img: '/6.webp', title: 'Proyectos productivos con enfoque sostenible' },
                 ].map((sector) => (
                   <div key={sector.id} className="group relative h-[320px] flex items-center justify-center text-center p-8 transition-all duration-500 bg-g4-red/80 hover:bg-g4-red/70">
                     <div className="flex flex-col items-center gap-6 animate-fade-in relative z-10">
@@ -348,11 +348,15 @@ export default function HomePage() {
           {/* Background image */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/ewanvong-shipment-7797181_1920.jpg.jpeg"
+              src="/ewanvong-shipment-7797181_1920.webp"
               alt="Camiones de carga en terminal de contenedores"
               fill
-              className="object-cover"
+              className="object-cover transition-all duration-300"
               quality={75}
+              style={{
+                filter: `brightness(var(--methodology-img-brightness)) contrast(var(--methodology-img-contrast))`,
+                opacity: `var(--methodology-img-opacity)`
+              }}
             />
             {/* Theme-aware overlay: dark mode = dark overlay, light mode = white overlay */}
             <div className="absolute inset-0 bg-surface-primary/[0.93]" />
