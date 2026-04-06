@@ -12,16 +12,18 @@ export default function HomePage() {
       <main className="flex-1 w-full overflow-hidden">
         {/* Hero */}
         <section className="relative overflow-hidden min-h-[85vh] flex items-center justify-center px-6">
-          {/* Background Image */}
+          {/* Background Video Loop */}
           <div className="absolute inset-0 z-0">
-            <Image
-              src="/barco-banner.webp"
-              alt="Avión sobrevolando contenedores de carga"
-              fill
-              className="object-cover"
-              priority
-              quality={100}
-            />
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+              poster="/barco-banner.webp"
+            >
+              <source src="/456195_Bangkok_Thailand_1920x1080.mp4" type="video/mp4" />
+            </video>
             {/* Overlays — work for both light & dark mode */}
             <div className="absolute inset-0 bg-black/60" />
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70" />
@@ -65,6 +67,7 @@ export default function HomePage() {
                   fill
                   className="object-cover"
                   quality={85}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
@@ -98,35 +101,59 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Misión */}
-              <div className="relative bg-surface-card border border-border-primary rounded-none overflow-hidden group hover:border-g4-red/30 transition-all duration-300">
-                <div className="h-2 bg-g4-red w-full"></div>
-                <div className="p-10">
-                  <h3 className="text-3xl font-black text-text-primary uppercase tracking-tight mb-2">Misión</h3>
-                  <div className="h-0.5 w-16 bg-g4-red mb-6"></div>
-                  <p className="text-text-secondary text-base leading-relaxed">
-                    Nuestra propuesta está orientada a empresas que producen calidad, pero que carecen de tiempo, estructura o know-how para transformar esa calidad en ventas sostenibles en mercados competitivos. Ofrecemos un modelo de gestión comercial y exportadora externalizada, adaptable a distintos sectores productivos.
-                  </p>
+              <div className="relative bg-surface-card border border-border-primary rounded-none overflow-hidden group hover:border-g4-red/30 transition-all duration-300 min-h-[320px]">
+                <div className="absolute inset-0 z-0">
+                  <Image
+                    src="/8369.webp"
+                    alt="Misión"
+                    fill
+                    className="object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-surface-card via-transparent to-surface-card/20" />
+                </div>
+                <div className="relative z-10">
+                  <div className="h-2 bg-g4-red w-full"></div>
+                  <div className="p-10">
+                    <h3 className="text-3xl font-black text-text-primary uppercase tracking-tight mb-2">Misión</h3>
+                    <div className="h-0.5 w-16 bg-g4-red mb-6"></div>
+                    <p className="text-text-secondary text-base leading-relaxed">
+                      Nuestra propuesta está orientada a empresas que producen calidad, pero que carecen de tiempo, estructura o know-how para transformar esa calidad en ventas sostenibles en mercados competitivos. Ofrecemos un modelo de gestión comercial y exportadora externalizada, adaptable a distintos sectores productivos.
+                    </p>
+                  </div>
                 </div>
               </div>
 
               {/* Visión */}
-              <div className="relative bg-surface-card border border-border-primary rounded-none overflow-hidden group hover:border-g4-red/30 transition-all duration-300">
-                <div className="h-2 bg-g4-red w-full"></div>
-                <div className="p-10">
-                  <h3 className="text-3xl font-black text-text-primary uppercase tracking-tight mb-2">Visión</h3>
-                  <div className="h-0.5 w-16 bg-g4-red mb-6"></div>
-                  <ul className="space-y-4">
-                    {[
-                      'Establecer el negocio y competir en el mercado.',
-                      'Presencia activa en las redes sociales.',
-                      'Convertirse en un HAV logístico de exportación e importación multi-productos (vino, café, etc.) en Sudamérica.',
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-text-secondary text-base leading-relaxed">
-                        <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-g4-red mt-2.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+              <div className="relative bg-surface-card border border-border-primary rounded-none overflow-hidden group hover:border-g4-red/30 transition-all duration-300 min-h-[320px]">
+                <div className="absolute inset-0 z-0">
+                  <Image
+                    src="/96544.webp"
+                    alt="Visión"
+                    fill
+                    className="object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-bl from-surface-card via-transparent to-surface-card/20" />
+                </div>
+                <div className="relative z-10">
+                  <div className="h-2 bg-g4-red w-full"></div>
+                  <div className="p-10">
+                    <h3 className="text-3xl font-black text-text-primary uppercase tracking-tight mb-2">Visión</h3>
+                    <div className="h-0.5 w-16 bg-g4-red mb-6"></div>
+                    <ul className="space-y-4">
+                      {[
+                        'Establecer el negocio y competir en el mercado.',
+                        'Presencia activa en las redes sociales.',
+                        'Convertirse en un HAV logístico de exportación e importación multi-productos (vino, café, etc.) en Sudamérica.',
+                      ].map((item, i) => (
+                        <li key={i} className="flex items-start gap-3 text-text-secondary text-base leading-relaxed">
+                          <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-g4-red mt-2.5" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -173,6 +200,7 @@ export default function HomePage() {
                   fill
                   className="object-cover"
                   quality={85}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
                 <div className="absolute bottom-0 left-0 right-0 p-8">
@@ -214,6 +242,7 @@ export default function HomePage() {
                   fill
                   className="object-cover"
                   quality={90}
+                  sizes="100vw"
                 />
               </div>
 
@@ -261,82 +290,130 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* 01 — Área Financiera e Inversiones */}
-              <div className="relative bg-g4-red border border-border-primary rounded-none p-8 group transition-all duration-300 overflow-hidden shadow-xl">
-                <span className="absolute top-4 right-6 text-[80px] font-black leading-none text-white/[0.08] select-none pointer-events-none">01</span>
-                <div className="w-12 h-12 rounded-none border border-white flex items-center justify-center mb-5">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
-                  </svg>
+              <div className="relative bg-black border border-border-primary rounded-none p-8 group transition-all duration-300 overflow-hidden shadow-xl min-h-[420px] flex flex-col justify-end">
+                <div className="absolute inset-0 z-0">
+                  <Image
+                    src="/13564.webp"
+                    alt="Finanzas"
+                    fill
+                    className="object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                 </div>
-                <h3 className="text-xl font-black text-white uppercase tracking-wide mb-1">Área Financiera<br />e Inversiones</h3>
-                <p className="text-white/80 text-xs font-bold uppercase tracking-wider mb-4">Dir. Sheyla Hilda Ramos Avendaño</p>
-                <p className="text-white text-sm leading-relaxed mb-6 italic">
-                  Estructuramos el modelo financiero de tu expansión internacional. Evaluamos riesgos, diseñamos esquemas de inversión y aseguramos que cada movimiento esté respaldado por números sólidos y proyecciones reales.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {['Inversión', 'ROI', 'Riesgo', 'Financiamiento'].map(tag => (
-                    <span key={tag} className="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white border border-white/30 rounded-none">{tag}</span>
-                  ))}
+                <div className="relative z-10">
+                  <span className="absolute -top-32 right-0 text-[80px] font-black leading-none text-white/[0.08] select-none pointer-events-none">01</span>
+                  <div className="w-12 h-12 rounded-none border border-white flex items-center justify-center mb-5">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-black text-white uppercase tracking-wide mb-1">Área Financiera<br />e Inversiones</h3>
+                  <p className="text-white/80 text-xs font-bold uppercase tracking-wider mb-4">Dir. Sheyla Hilda Ramos Avendaño</p>
+                  <p className="text-white text-sm leading-relaxed mb-6 italic">
+                    Estructuramos el modelo financiero de tu expansión internacional. Evaluamos riesgos, diseñamos esquemas de inversión y aseguramos que cada movimiento esté respaldado por números sólidos y proyecciones reales.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {['Inversión', 'ROI', 'Riesgo', 'Financiamiento'].map(tag => (
+                      <span key={tag} className="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white border border-white/30 rounded-none">{tag}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
               {/* 02 — Desarrollo de Productos y Capacitación */}
-              <div className="relative bg-surface-card border border-border-primary rounded-none p-8 group hover:border-g4-red transition-all duration-300 overflow-hidden shadow-xl">
-                <span className="absolute top-4 right-6 text-[80px] font-black leading-none text-text-primary/[0.04] select-none pointer-events-none">02</span>
-                <div className="w-12 h-12 rounded-none border border-g4-red flex items-center justify-center mb-5">
-                  <svg className="w-6 h-6 text-g4-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
-                  </svg>
+              <div className="relative bg-black border border-border-primary rounded-none p-8 group hover:border-g4-red transition-all duration-300 overflow-hidden shadow-xl min-h-[420px] flex flex-col justify-end">
+                <div className="absolute inset-0 z-0">
+                  <Image
+                    src="/man-with-helmet-working-warehouse.webp"
+                    alt="Capacitación"
+                    fill
+                    className="object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                 </div>
-                <h3 className="text-xl font-black text-text-primary uppercase tracking-wide mb-1">Desarrollo de Productos<br />y Capacitación</h3>
-                <p className="text-g4-red text-xs font-bold uppercase tracking-wider mb-4">Dir. Mauro Emiliano Aguirre</p>
-                <p className="text-text-secondary text-sm leading-relaxed mb-6">
-                  Adaptamos tus productos a los estándares y exigencias de los mercados internacionales. Capacitamos a tu equipo para que la expansión sea sostenible y tu producto compita en condiciones óptimas.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {['Desarrollo', 'Capacitación', 'Estándares', 'Calidad'].map(tag => (
-                    <span key={tag} className="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-text-secondary border border-border-secondary rounded-none">{tag}</span>
-                  ))}
+                <div className="relative z-10">
+                  <span className="absolute -top-32 right-0 text-[80px] font-black leading-none text-white/[0.05] select-none pointer-events-none">02</span>
+                  <div className="w-12 h-12 rounded-none border border-g4-red flex items-center justify-center mb-5">
+                    <svg className="w-6 h-6 text-g4-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-black text-white uppercase tracking-wide mb-1">Desarrollo de Productos<br />y Capacitación</h3>
+                  <p className="text-g4-red text-xs font-bold uppercase tracking-wider mb-4">Dir. Mauro Emiliano Aguirre</p>
+                  <p className="text-white text-sm leading-relaxed mb-6 italic">
+                    Adaptamos tus productos a los estándares y exigencias de los mercados internacionales. Capacitamos a tu equipo para que la expansión sea sostenible y tu producto compita en condiciones óptimas.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {['Desarrollo', 'Capacitación', 'Estándares', 'Calidad'].map(tag => (
+                      <span key={tag} className="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white border border-white/30 rounded-none">{tag}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
               {/* 03 — Área de Comercio Internacional */}
-              <div className="relative bg-surface-card border border-border-primary rounded-none p-8 group hover:border-g4-red transition-all duration-300 overflow-hidden shadow-xl">
-                <span className="absolute top-4 right-6 text-[80px] font-black leading-none text-text-primary/[0.04] select-none pointer-events-none">03</span>
-                <div className="w-12 h-12 rounded-none border border-g4-red flex items-center justify-center mb-5">
-                  <svg className="w-6 h-6 text-g4-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-                  </svg>
+              <div className="relative bg-black border border-border-primary rounded-none p-8 group hover:border-g4-red transition-all duration-300 overflow-hidden shadow-xl min-h-[420px] flex flex-col justify-end">
+                <div className="absolute inset-0 z-0">
+                  <Image
+                    src="/vehicles-boxes-supply-chain-representation.webp"
+                    alt="Comercio"
+                    fill
+                    className="object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                 </div>
-                <h3 className="text-xl font-black text-text-primary uppercase tracking-wide mb-1">Área de Comercio<br />Internacional</h3>
-                <p className="text-g4-red text-xs font-bold uppercase tracking-wider mb-4">Dir. Micca Jose Sebastián</p>
-                <p className="text-text-secondary text-sm leading-relaxed mb-6">
-                  Diseñamos la estrategia de entrada a mercados. Identificamos canales y socios prioritarios, gestionamos negociaciones y cerramos acuerdos comerciales que generen valor real y posicionamiento duradero.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {['Exportación', 'Mercados', 'Distribución', 'B2B'].map(tag => (
-                    <span key={tag} className="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-text-secondary border border-border-secondary rounded-none">{tag}</span>
-                  ))}
+                <div className="relative z-10">
+                  <span className="absolute -top-32 right-0 text-[80px] font-black leading-none text-white/[0.05] select-none pointer-events-none">03</span>
+                  <div className="w-12 h-12 rounded-none border border-g4-red flex items-center justify-center mb-5">
+                    <svg className="w-6 h-6 text-g4-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-black text-white uppercase tracking-wide mb-1">Área de Comercio<br />Internacional</h3>
+                  <p className="text-g4-red text-xs font-bold uppercase tracking-wider mb-4">Dir. Micca Jose Sebastián</p>
+                  <p className="text-white text-sm leading-relaxed mb-6 italic">
+                    Diseñamos la estrategia de entrada a mercados. Identificamos canales y socios prioritarios, gestionamos negociaciones y cerramos acuerdos comerciales que generen valor real y posicionamiento duradero.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {['Exportación', 'Mercados', 'Distribución', 'B2B'].map(tag => (
+                      <span key={tag} className="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white border border-white/30 rounded-none">{tag}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
               {/* 04 — Logística y Distribución */}
-              <div className="relative bg-g4-red border border-border-primary rounded-none p-8 group transition-all duration-300 overflow-hidden shadow-xl">
-                <span className="absolute top-4 right-6 text-[80px] font-black leading-none text-white/[0.08] select-none pointer-events-none">04</span>
-                <div className="w-12 h-12 rounded-none border border-white flex items-center justify-center mb-5">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.07-.504 1.07-1.125V14.25m-17.25 0h10.5c.621 0 1.125-.504 1.125-1.125V6.375c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v6.75c0 .621.504 1.125 1.125 1.125zm12.75 0h1.5c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125h-1.5a1.125 1.125 0 00-1.125 1.125v3.75c0 .621.504 1.125 1.125 1.125z" />
-                  </svg>
+              <div className="relative bg-black border border-border-primary rounded-none p-8 group transition-all duration-300 overflow-hidden shadow-xl min-h-[420px] flex flex-col justify-end">
+                <div className="absolute inset-0 z-0">
+                  <Image
+                    src="/Avión_entre_contened.webp"
+                    alt="Logística"
+                    fill
+                    className="object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                 </div>
-                <h3 className="text-xl font-black text-white uppercase tracking-wide mb-1">Logística<br />y Distribución</h3>
-                <p className="text-white/80 text-xs font-bold uppercase tracking-wider mb-4">Dir. Pablo Javier Quiroga</p>
-                <p className="text-white text-sm leading-relaxed mb-6 italic">
-                  Coordinamos toda la cadena logística de exportación e importación: cumplimiento aduanero, trazabilidad, tiempos de entrega y costos optimizados. Tu producto llega donde tiene que llegar, cuando tiene que llegar.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {['Aduana', 'Supply Chain', 'Trazabilidad', 'Last Mile'].map(tag => (
-                    <span key={tag} className="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white border border-white/30 rounded-none">{tag}</span>
-                  ))}
+                <div className="relative z-10">
+                  <span className="absolute -top-32 right-0 text-[80px] font-black leading-none text-white/[0.08] select-none pointer-events-none">04</span>
+                  <div className="w-12 h-12 rounded-none border border-white flex items-center justify-center mb-5">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.07-.504 1.07-1.125V14.25m-17.25 0h10.5c.621 0 1.125-.504 1.125-1.125V6.375c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v6.75c0 .621.504 1.125 1.125 1.125zm12.75 0h1.5c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125h-1.5a1.125 1.125 0 00-1.125 1.125v3.75c0 .621.504 1.125 1.125 1.125z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-black text-white uppercase tracking-wide mb-1">Logística<br />y Distribución</h3>
+                  <p className="text-white/80 text-xs font-bold uppercase tracking-wider mb-4">Dir. Pablo Javier Quiroga</p>
+                  <p className="text-white text-sm leading-relaxed mb-6 italic">
+                    Coordinamos toda la cadena logística de exportación e importación: cumplimiento aduanero, trazabilidad, tiempos de entrega y costos optimizados. Tu producto llega donde tiene que llegar, cuando tiene que llegar.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {['Aduana', 'Supply Chain', 'Trazabilidad', 'Last Mile'].map(tag => (
+                      <span key={tag} className="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white border border-white/30 rounded-none">{tag}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -353,6 +430,7 @@ export default function HomePage() {
               fill
               className="object-cover transition-all duration-300"
               quality={75}
+              sizes="100vw"
               style={{
                 filter: `brightness(var(--methodology-img-brightness)) contrast(var(--methodology-img-contrast))`,
                 opacity: `var(--methodology-img-opacity)`
