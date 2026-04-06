@@ -357,7 +357,7 @@ export default function HomePage() {
               <div className="relative bg-black border border-border-primary rounded-none p-8 group hover:border-g4-red transition-all duration-300 overflow-hidden shadow-xl min-h-[420px] flex flex-col justify-end">
                 <div className="absolute inset-0 z-0">
                   <Image
-                    src="/vehicles-boxes-supply-chain-representation.webp"
+                    src="/Avión_entre_contened.webp"
                     alt="Comercio"
                     fill
                     className="object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
@@ -389,7 +389,7 @@ export default function HomePage() {
               <div className="relative bg-black border border-border-primary rounded-none p-8 group transition-all duration-300 overflow-hidden shadow-xl min-h-[420px] flex flex-col justify-end">
                 <div className="absolute inset-0 z-0">
                   <Image
-                    src="/Avión_entre_contened.webp"
+                    src="/2289.webp"
                     alt="Logística"
                     fill
                     className="object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
