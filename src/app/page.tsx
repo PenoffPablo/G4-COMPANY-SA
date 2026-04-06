@@ -107,7 +107,7 @@ export default function HomePage() {
                     src="/8369.webp"
                     alt="Misión"
                     fill
-                    className="object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+                    className="object-cover opacity-40 group-hover:opacity-50 transition-opacity duration-500"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-surface-card via-transparent to-surface-card/20" />
@@ -131,7 +131,7 @@ export default function HomePage() {
                     src="/96544.webp"
                     alt="Visión"
                     fill
-                    className="object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+                    className="object-cover opacity-40 group-hover:opacity-50 transition-opacity duration-500"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-bl from-surface-card via-transparent to-surface-card/20" />
