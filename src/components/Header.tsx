@@ -19,6 +19,7 @@ export default function Header() {
   const pathname = usePathname();
   const [showDropdown, setShowDropdown] = useState(false);
   const [showNotif, setShowNotif] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const isAdmin = user?.role === 'admin';
   const isAuthPage = pathname === '/login' || pathname === '/register';
@@ -45,8 +46,8 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Right side: Actions */}
-        <div className="flex items-center gap-3">
+        {/* Right side: Actions (Desktop) */}
+        <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
 
           {user ? (
@@ -134,6 +135,78 @@ export default function Header() {
             )
           )}
         </div>
+
+        {/* Mobile Menu Trigger */}
+        <div className="flex md:hidden items-center gap-3">
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-2 rounded-none border border-border-primary hover:bg-surface-hover transition-colors text-text-secondary"
+            aria-label="Menú de ajustes"
+          >
+            {isMobileMenuOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+              </svg>
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Dropdown Menu */}
+        {isMobileMenuOpen && (
+          <div className="absolute top-20 left-0 right-0 bg-surface-primary border-b border-border-primary animate-fade-in md:hidden overflow-hidden z-50">
+            <div className="p-6 space-y-4 shadow-2xl">
+              {/* Theme Toggle Mobile */}
+              <div className="flex items-center justify-between p-4 bg-surface-secondary border border-border-primary rounded-none">
+                <span className="text-sm font-bold uppercase tracking-widest text-text-primary">Modo de Color</span>
+                <ThemeToggle />
+              </div>
+
+              {/* Login / User Info Mobile */}
+              {user ? (
+                <div className="space-y-3">
+                  <div className="p-4 bg-g4-red text-white">
+                    <p className="text-xs font-black uppercase tracking-widest leading-tight">{user.name}</p>
+                    <p className="text-[10px] opacity-80 uppercase font-bold">{user.role}</p>
+                  </div>
+                  {(user.role === 'admin' || user.role === 'operario') && !isDashboard && (
+                    <Link
+                      href={user.role === 'admin' ? '/admin' : '/operario'}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="flex items-center justify-between p-4 bg-surface-secondary border border-border-primary text-xs font-bold uppercase tracking-widest text-text-primary"
+                    >
+                      <span>Panel de Control</span>
+                      <span>→</span>
+                    </Link>
+                  )}
+                  <button
+                    onClick={() => { logout(); setIsMobileMenuOpen(false); }}
+                    className="w-full flex items-center justify-between p-4 bg-danger/10 border border-danger/30 text-xs font-bold uppercase tracking-widest text-danger"
+                  >
+                    <span>Cerrar Sesión</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                  </button>
+                </div>
+              ) : (
+                !isAuthPage && (
+                  <Link
+                    href="/login"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-4 bg-g4-red text-white text-sm font-black uppercase tracking-widest hover:bg-g4-red-dark transition-colors"
+                  >
+                    <span>ACCESO PRIVADO</span>
+                    <span>→</span>
+                  </Link>
+                )
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );
