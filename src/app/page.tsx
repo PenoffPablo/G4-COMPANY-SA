@@ -425,7 +425,7 @@ export default function HomePage() {
 
             {/* Botón grande Contactanos */}
             <a
-              href="mailto:g4company.sa@gmail.com"
+              href="mailto:soporte@g4company.com"
               className="inline-flex items-center gap-3 px-14 py-5 rounded-none bg-g4-red-dark text-white font-black text-xl uppercase tracking-wide hover:-translate-y-1 transition-all duration-300 mb-14"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
