@@ -378,7 +378,7 @@ export default function HomePage() {
                     Diseñamos la estrategia de entrada a mercados. Identificamos canales y socios prioritarios, gestionamos negociaciones y cerramos acuerdos comerciales que generen valor real y posicionamiento duradero.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['Exportación', 'Mercados', 'Distribución', 'B2B'].map(tag => (
+                    {['Exportación', 'Mercados', 'Aduana', 'B2B'].map(tag => (
                       <span key={tag} className="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white border border-white/30 rounded-none">{tag}</span>
                     ))}
                   </div>
@@ -410,7 +410,7 @@ export default function HomePage() {
                     Coordinamos toda la cadena logística de exportación e importación: cumplimiento aduanero, trazabilidad, tiempos de entrega y costos optimizados. Tu producto llega donde tiene que llegar, cuando tiene que llegar.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['Aduana', 'Supply Chain', 'Trazabilidad', 'Last Mile'].map(tag => (
+                    {['Distribución', 'Supply Chain', 'Trazabilidad', 'Last Mile'].map(tag => (
                       <span key={tag} className="px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white border border-white/30 rounded-none">{tag}</span>
                     ))}
                   </div>
