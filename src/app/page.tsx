@@ -341,7 +341,7 @@ export default function HomePage() {
                     </svg>
                   </div>
                   <h3 className="text-xl font-black text-white uppercase tracking-wide mb-1">Desarrollo de Productos<br />y Capacitación</h3>
-                  <p className="text-g4-red text-xs font-bold uppercase tracking-wider mb-4">Dir. Mauro Emiliano Aguirre</p>
+                  <p className="text-g4-red text-xs font-bold uppercase tracking-wider mb-4">Dir. Micca Jose Sebastián</p>
                   <p className="text-white text-sm leading-relaxed mb-6 italic">
                     Adaptamos tus productos a los estándares y exigencias de los mercados internacionales. Capacitamos a tu equipo para que la expansión sea sostenible y tu producto compita en condiciones óptimas.
                   </p>
